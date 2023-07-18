@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>Menstrual Phase Food & Calorie Tracker</title>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Menstrual Phase <br> <span>Food & Calorie Tracker</span><br></h1>
+    </header>
+    <br>
+    <p id="IntroText">Did you know that your recommended calorie intake varies depending on where you are in your cycle?
+      <br><br>We developed this handy tracker tool so you can see what your daily intake should be, meaning a healthier you!
+      <br><br> Simply enter your details below and you will see what today's calorie intake should be.
+    </p>
+    <br>
+    <div id="action_page">
+      <form class="form" id="calorie-tracker-form">
+        <fieldset>
+          <legend>Enter Your Details</legend>
+          <label for="name">Please Enter Your Name:</label>
+          <input type="text" id="name" name="fname" placeholder="Your Name" style="width:200px;"><br><br>
+          <label for="age">Please Enter Your Age:</label>
+          <input type="number" id="age" name="age" placeholder="Your Age" style="width:200px;"><br><br>
+          <div class="form-row">
+            <label class="form-label" for="height-ft">Height:</label>
+            <input class="form-input" type="number" id="height-ft" placeholder="Feet" required>
+            <input class="form-input" type="number" id="height-in" placeholder="Inches" required>
+          </div>
+          <label for="weight">Weight:</label>
+          <input type="number" id="weight" placeholder="lbs" required style="width:200px;"><br><br>
+          <label for="activity">Activity Level:</label>
+          <select id="activity" required style="width:200px;">
+            <option value="">Select an activity level</option>
+            <option value="Sedentary (office job)">Sedentary (office job)</option>
+            <option value="Light Exercise (1-2 days a week)">Light Exercise (1-2 days a week)</option>
+            <option value="Moderate Exercise (3-5 days a week)">Moderate Exercise (3-5 days a week)</option>
+            <option value="Heavy Exercise (6-7 days a week)">Heavy Exercise (6-7 days a week)</option>
+            <option value="Athlete (2x a day)">Athlete (2x a day)</option>
+          </select>
+          <br>
+          <label for="cycle">Days since your last period:</label>
+          <input type="number" id="cycle" placeholder="Days since last period" required style="width:200px;"><br><br>
+          <label for="cycle-length">Average Cycle length:</label>
+          <input type="number" id="cycle-length" placeholder="Average cycle length" required style="width:200px;"><br><br>
+          <input type="submit" value="Submit">
+        </fieldset>
+      </form>
+      
+       <p align="center"><iframe src="https://calendar.google.com/calendar/embed?height=300&wkst=1&bgcolor=%23B39DDB&ctz=Europe%2FLondon&hl=en_GB&src=N2M4N2U3YWU5NTljYWZlYmI0YjE4ZTA0MGZhMTAyOGM0ODBiMzBhNWIyMmJiOGFkOGUzYmMwMjliY2Q5NjA0Y0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border:solid 1px #777" width="300" height="300" frameborder="0" scrolling="no"></iframe></p>
+    
+    <br><br>
+      
+  <p id="results">
+        
+<br>
+
+      <script>
+        document.getElementById("calorie-tracker-form").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent form submission
+
+          // Retrieve form values
+          const name = document.getElementById('name').value;
+          const age = parseInt(document.getElementById('age').value);
+          const heightFt = parseInt(document.getElementById('height-ft').value);
+          const heightIn = parseInt(document.getElementById('height-in').value);
+          const weight = parseInt(document.getElementById('weight').value);
+          const activity = document.getElementById('activity').value;
+          const cycle = parseInt(document.getElementById('cycle').value);
+          const cycleLength = parseInt(document.getElementById('cycle-length').value);
+
+          / Calculate BMR
+    let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
+    bmr = bmr - (4.330 * age);
+    bmr = Math.round(bmr);
+
+    // Calculate TDEE
+    let tdee = bmr;
+    if (cycleLength && !isNaN(cycle) && !isNaN(cycleLength)) {
+      const daysInCycle = cycle % cycleLength;
+      if (daysInCycle <= 5) {
+        tdee += 254;
+      } else if (daysInCycle > 21) {
+        tdee += 375;
+      }
+    }
+
+    // Calculate the menstrual cycle stage
+    const cycleStage = menstrualCycleStage(cycle, cycleLength);
+
+    // Show results with the cycle stage
+    showResults(bmr, tdee, cycleStage);
+  });
+</script>
+    </div>
+  </div>
+</body>
+</html>
