@@ -58,20 +58,77 @@
 <br>
 
       <script>
-        document.getElementById("calorie-tracker-form").addEventListener("submit", function(event) {
-          event.preventDefault(); // Prevent form submission
+  // Calculate stage of menstrual cycle
+  function menstrualCycleStage(cycle, cycleLength) {
+    const daysInCycle = cycle % cycleLength;
 
-          // Retrieve form values
-          const name = document.getElementById('name').value;
-          const age = parseInt(document.getElementById('age').value);
-          const heightFt = parseInt(document.getElementById('height-ft').value);
-          const heightIn = parseInt(document.getElementById('height-in').value);
-          const weight = parseInt(document.getElementById('weight').value);
-          const activity = document.getElementById('activity').value;
-          const cycle = parseInt(document.getElementById('cycle').value);
-          const cycleLength = parseInt(document.getElementById('cycle-length').value);
+    if (daysInCycle <= 5) {
+      return "Menstruation";
+    } else if (daysInCycle <= 14) {
+      return "Follicular Phase";
+    } else if (daysInCycle <= 21) {
+      return "Ovulation";
+    } else {
+      return "Luteal Phase";
+    }
+  }
 
-          / Calculate BMR
+  // Calculate TDEE
+  function functionCalculateTDEE(bmr, activity) {
+    let tdee;
+
+    switch (activity) {
+      case "Sedentary (office job)":
+        tdee = Math.round(bmr * 1.2);
+        break;
+      case "Light Exercise (1-2 days a week)":
+        tdee = Math.round(bmr * 1.375);
+        break;
+      case "Moderate Exercise (3-5 days a week)":
+        tdee = Math.round(bmr * 1.55);
+        break;
+      case "Heavy Exercise (6-7 days a week)":
+        tdee = Math.round(bmr * 1.725);
+        break;
+      case "Athlete (2x a day)":
+        tdee = Math.round(bmr * 1.9);
+        break;
+    }
+
+    return tdee;
+  }
+
+  // Show results
+  function showResults(bmr, tdee, cycleStage) {
+    const results = document.getElementById("results");
+
+    // Clear any existing content in the "Results" div
+    results.innerHTML = "";
+
+    const cycleParagraph = document.createElement("p");
+    cycleParagraph.textContent = "Your current menstrual stage is " + cycleStage;
+    results.appendChild(cycleParagraph);
+
+    const tdeeParagraph = document.createElement("p");
+    tdeeParagraph.textContent = "During this time you should aim to eat " + tdee + " calories.";
+    results.appendChild(tdeeParagraph);
+  }
+
+  // Event listener for form submission
+  document.getElementById("calorie-tracker-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Retrieve form values
+    const name = document.getElementById('name').value;
+    const age = parseInt(document.getElementById('age').value);
+    const heightFt = parseInt(document.getElementById('height-ft').value);
+    const heightIn = parseInt(document.getElementById('height-in').value);
+    const weight = parseInt(document.getElementById('weight').value);
+    const activity = document.getElementById('activity').value;
+    const cycle = parseInt(document.getElementById('cycle').value);
+    const cycleLength = parseInt(document.getElementById('cycle-length').value);
+
+    // Calculate BMR
     let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
     bmr = bmr - (4.330 * age);
     bmr = Math.round(bmr);
@@ -92,6 +149,7 @@
 
     // Show results with the cycle stage
     showResults(bmr, tdee, cycleStage);
+    return false; // Prevent the page from reloading
   });
 </script>
     </div>
