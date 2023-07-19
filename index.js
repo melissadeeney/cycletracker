@@ -113,7 +113,7 @@ function showResults(bmr, tdee, cycleStage) {
 
 
 // Event listener for form submission
-document.getElementById("calorie-tracker-form").addEventListener("submit", function(event) {
+document.getElementById("calorie-tracker-form").addEventListener("Submit", function(event) {
   event.preventDefault(); // Prevent form submission
 
   // Retrieve form values
