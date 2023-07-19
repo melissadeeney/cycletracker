@@ -149,7 +149,8 @@
 
     // Show results with the cycle stage
     showResults(bmr, tdee, cycleStage);
-    return false; // Prevent the page from reloading
+    
+  event.preventDefault(); // Prevent the form submission
   });
 </script>
     </div>
