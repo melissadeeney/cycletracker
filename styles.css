@@ -27,11 +27,12 @@ header {
   border-width: 5px;
   border-radius: 20px;
   background-color: rgb(255 255 255 / 0.8);
+  border-color: darkmagenta;
 }
 
 header span {
   font-size: 25px;
-  color: white;
+  color: darkmagenta;
 }
 
 #IntroText {
