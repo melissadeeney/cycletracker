@@ -94,8 +94,7 @@ function calculateHeightInCm(heightFt, heightIn) {
 } 
   // Calculate weight in kg
 function calculateWeightInKg(weight) {
-    const weightInKg = (weight / 2.2).toFixed(2);
-    return weightInKg;
+    return (weight / 2.205).toFixed(2);
 }    
   // Calculate stage of menstrual cycle
   function menstrualCycleStage(cycle, cycleLength) {
