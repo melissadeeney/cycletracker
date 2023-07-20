@@ -1,3 +1,19 @@
+// Calculate weight conversion
+function weightConverterStone()
+{
+  let stones = parseInt (document.getElementById("stone-amount").value);
+  let lb = stones*14;
+  document.getElementById("lb-amount").textContent = lb;
+};
+
+
+function weightConverterKilo()
+{
+  let kilos = parseInt (document.getElementById("kilo-amount").value);
+  let lb = kilos*2.205;
+  document.getElementById("lb-amount").textContent = lb;
+};
+
 function getFormValues() {
   const heightFt = parseInt(document.getElementById('height-ft').value);
   const heightIn = parseInt(document.getElementById('height-in').value);
@@ -184,20 +200,6 @@ function calculateBMI(weightInKg, heightInCm) {
     showResults(bmi, tdee, cycleStage);
 });
 
-// Calculate weight conversion
-function weightConverterStone()
-{
-  let stones = parseInt (document.getElementById("stone-amount").value);
-  let lb = stones*14;
-  document.getElementById("lb-amount").textContent = lb;
-};
 
-
-function weightConverterKilo()
-{
-  let kilos = parseInt (document.getElementById("kilo-amount").value);
-  let lb = kilos*2.205;
-  document.getElementById("lb-amount").textContent = lb;
-};
 
 
