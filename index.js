@@ -152,7 +152,7 @@ function calculateBMI(weightInKg, heightInCm) {
     weightGainParagraph.textContent = "If you want to gain weight during this time you should aim to eat " + tdeeForWeightGain + " calories.";
     results.appendChild(weightGainParagraph);   
   }
-document.addEventListener("DOMContentLoaded", function () {
+
   // Event listener for form submission
 document.getElementById("calorie-tracker-form").addEventListener("submit", function (event) {
   event.preventDefault(); // Prevent form submission
@@ -198,7 +198,6 @@ document.getElementById("calorie-tracker-form").addEventListener("submit", funct
 
   // Show results with the cycle stage
   showResults(bmi, tdee, cycleStage);
-});
 });
 
 
