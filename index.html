@@ -127,17 +127,31 @@
     return tdee;
   }
 
+    // Calculate BMI
+  function calculateBMI(weight, heightInCm) {
+    const heightInMeters = heightInCm / 100;
+    return (weight / (heightInMeters * heightInMeters)).toFixed(2);
+  }
+
   // Show results
-  function showResults(bmr, tdee, cycleStage) {
+  function showResults(weight, heightInCm, tdee, cycleStage) {
     const results = document.getElementById("results");
 
     // Clear any existing content in the "Results" div
     results.innerHTML = "";
-
+      
+    // Calculate and display menstrual phase
     const cycleParagraph = document.createElement("p");
     cycleParagraph.textContent = "Your current menstrual stage is " + cycleStage;
     results.appendChild(cycleParagraph);
 
+    // Calculate and display BMI
+    const bmi = calculateBMI(weight, heightInCm);
+    const bmiParagraph = document.createElement("p");
+    bmiParagraph.textContent = "Your BMI is: " + bmi;
+    results.appendChild(bmiParagraph);  
+      
+    // Calculate and display maintenance calories
     const tdeeParagraph = document.createElement("p");
     tdeeParagraph.textContent = "To maintain your current weight during this time you should aim to eat " + tdee + " calories.";
     results.appendChild(tdeeParagraph);
@@ -151,7 +165,7 @@
    // Calculate calorie intake for weight gain during the cycle stage
     const tdeeForWeightGain = tdee + 500;
     const weightGainParagraph = document.createElement("p");
-    weightLossParagraph.textContent = "If you want to gain weight during this time you should eat " + tdeeForWeightLoss + " calories.";
+    weightLossParagraph.textContent = "If you want to gain weight during this time you should eat " + tdeeForWeightGain + " calories.";
     results.appendChild(weightGainParagraph);   
   }
 
