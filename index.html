@@ -159,13 +159,13 @@
    // Calculate calorie intake for weight loss during the cycle stage
     const tdeeForWeightLoss = tdee - 500;
     const weightLossParagraph = document.createElement("p");
-    weightLossParagraph.textContent = "If you want to lose weight during this time you should eat " + tdeeForWeightLoss + " calories.";
+    weightLossParagraph.textContent = "If you want to lose weight during this time you should eat aim to eat " + tdeeForWeightLoss + " calories.";
     results.appendChild(weightLossParagraph);
 
   // Calculate calorie intake for weight gain during the cycle stage
     const tdeeForWeightGain = tdee + 500;
     const weightGainParagraph = document.createElement("p");
-    weightGainParagraph.textContent = "If you want to gain weight during this time you should eat " + tdeeForWeightGain + " calories.";
+    weightGainParagraph.textContent = "If you want to gain weight during this time you should aim to eat " + tdeeForWeightGain + " calories.";
     results.appendChild(weightGainParagraph);
 
   // Event listener for form submission
