@@ -23,9 +23,6 @@ function getFormValues() {
   const cycle = parseInt(document.getElementById('cycle').value);
   const cycleLength = parseInt(document.getElementById('cycle-length').value);
 
-  // Calculate height in cm
-  const heightInCm = ((heightFt * 12) + heightIn) * 2.54;
-
 
   return {
     heightFt,
@@ -55,7 +52,7 @@ function calculateBMR() {
 
   // Convert values
   const weightInKg = (weight / 2.2).toFixed(2);
-  const heightToCm = (heightFt * 12) + heightIn;
+  const heightInCm = (heightFt * 12 + heightIn) * 2.54;
   
 
   // Calculate BMR
