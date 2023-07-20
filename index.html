@@ -206,10 +206,8 @@ document.getElementById("calorie-tracker-form").addEventListener("submit", funct
 
   // Show results with the cycle stage
   showResults(weight, heightFt, tdee, cycleStage);
+   event.preventDefault(); // Prevent the form submission 
 });
-    
-  event.preventDefault(); // Prevent the form submission
-  });
 </script>
     </div>
   </div>
