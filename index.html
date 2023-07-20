@@ -78,7 +78,7 @@
         </div>
       </div>
 
-     
+      
     
     <br><br>
       
@@ -131,6 +131,10 @@ function calculateWeightInKg(weight) {
       case "Athlete (2x a day)":
         tdee = Math.round(bmr * 1.9);
         break;
+      default:
+      // Set a default value for tdee in case of an unknown activity
+      tdee = Math.round(bmr * 1.375); 
+      break;
     }
 
     return tdee;
