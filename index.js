@@ -1,4 +1,3 @@
-// Retrieve form values
 function getFormValues() {
   const heightFt = parseInt(document.getElementById('height-ft').value);
   const heightIn = parseInt(document.getElementById('height-in').value);
@@ -8,6 +7,9 @@ function getFormValues() {
   const cycle = parseInt(document.getElementById('cycle').value);
   const cycleLength = parseInt(document.getElementById('cycle-length').value);
 
+  // Calculate height in cm
+  const heightInCm = (heightFt * 12 + heightIn) * 2.54;
+
   return {
     heightFt,
     heightIn,
@@ -15,7 +17,8 @@ function getFormValues() {
     age,
     activity,
     cycle,
-    cycleLength
+    cycleLength,
+    heightInCm,
   };
 }
 
@@ -29,7 +32,8 @@ function calculateBMR() {
     age,
     activity,
     cycle,
-    cycleLength
+    cycleLength,
+    heightInCm, 
   } = formValues;
 
   // Convert values
