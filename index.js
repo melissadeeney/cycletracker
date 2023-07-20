@@ -183,24 +183,19 @@ document.getElementById("calorie-tracker-form").addEventListener("submit", funct
   const bmi = calculateBMI(weightInKg, heightInCm);
 
   // Calculate TDEE based on activity level
-      const tdee = functionCalculateTDEE(bmr, activity);
+  let tdee = functionCalculateTDEE(bmr, activity);
 
-  // Calculate TDEE
-  let tdee = bmr;
-  if (cycleLength && !isNaN(cycle) && !isNaN(cycleLength)) {
-    const daysInCycle = cycle % cycleLength;
-    if (daysInCycle <= 5) {
-      tdee += 254;
-    } else if (daysInCycle > 21) {
-      tdee += 375;
-    }
+  // Check cycle
+  const cycleStage = menstrualCycleStage(cycle, cycleLength);
+  if (cycleStage === "Follicular Phase") {
+    tdee += 254;
+  } else if (cycleStage === "Luteal Phase") {
+    tdee += 375;
   }
 
-  // Calculate the menstrual cycle stage
-  const cycleStage = menstrualCycleStage(cycle, cycleLength);
 
-  // Show results with the cycle stage
-  showResults(bmi, tdee, cycleStage);
+    // Show results with the cycle stage
+    showResults(bmi, tdee, cycleStage);
 });
 
 
