@@ -99,3 +99,18 @@ header span {
 #activity {
   margin-bottom: 15px;
 }
+
+div.row {
+  display: flex;
+}
+
+div.column {
+  flex: 50%;
+  padding: 0px;
+  opacity: 0.8;
+}
+
+div.column p {
+  color: darkmagenta;
+  font-weight: bold;
+}
