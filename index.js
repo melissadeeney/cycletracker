@@ -147,12 +147,15 @@ function functionCalculateTDEE(bmr, activity) {
     const activity = document.getElementById('activity').value;
     const cycle = parseInt(document.getElementById('cycle').value);
     const cycleLength = parseInt(document.getElementById('cycle-length').value);
-    const bmi = CalculateBMI(weight, heightInCm);  
+    
 
     // Calculate BMR
     let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
     bmr = bmr - (4.330 * age);
     bmr = Math.round(bmr);
+
+    // Calculate BMI
+  const bmi = CalculateBMI(weight, heightInCm);
 
     // Calculate TDEE
     let tdee = bmr;
