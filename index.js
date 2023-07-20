@@ -100,8 +100,8 @@ function functionCalculateTDEE(bmr, activity) {
 }
 
 function calculateBMI(weightInKg, heightInCm) {
-  const heightInMeters = heightInCm / 100;
-  return (weightInKg / (heightInMeters * heightInMeters)).toFixed(2);
+  const heightInMetres = heightInCm / 100;
+  return (weightInKg / (heightInMetres * heightInMetres)).toFixed(2);
 }
 
 
