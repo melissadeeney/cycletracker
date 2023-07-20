@@ -91,7 +91,12 @@
 function calculateHeightInCm(heightFt, heightIn) {
   const heightToCm = (heightFt * 12) + heightIn;
   return heightToCm * 2.54;
-}       
+} 
+  // Calculate weight in kg
+function calculateWeightInKg(weight) {
+    const weightInKg = (weight / 2.2).toFixed(2);
+    return weightInKg;
+}    
   // Calculate stage of menstrual cycle
   function menstrualCycleStage(cycle, cycleLength) {
     const daysInCycle = cycle % cycleLength;
@@ -186,6 +191,8 @@ function calculateBMI(weight, heightInCm) {
 
     // Calculate height in cm
   const heightInCm = calculateHeightInCm(heightFt, heightIn);  
+    // Calculate weight in kg
+  const weightInKg = calculateWeightInKg(weight);
     
     // Calculate BMR
     let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
