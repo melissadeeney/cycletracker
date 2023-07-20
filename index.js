@@ -182,6 +182,9 @@ document.getElementById("calorie-tracker-form").addEventListener("submit", funct
   // Calculate BMI
   const bmi = calculateBMI(weightInKg, heightInCm);
 
+  // Calculate TDEE based on activity level
+      const tdee = functionCalculateTDEE(bmr, activity);
+
   // Calculate TDEE
   let tdee = bmr;
   if (cycleLength && !isNaN(cycle) && !isNaN(cycleLength)) {
