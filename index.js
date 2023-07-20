@@ -114,7 +114,7 @@ function functionCalculateTDEE(bmr, activity) {
     results.appendChild(cycleParagraph);
       
     const bmiParagraph = document.createElement("p");
-    bmiParagraph.textContent = "Your BMI menstrual stage is " + bmi;
+    bmiParagraph.textContent = "Your BMI menstrual is " + bmi;
     results.appendChild(bmiParagraph);  
 
     const tdeeParagraph = document.createElement("p");
