@@ -160,6 +160,12 @@ function calculateBMI(weightInKg, heightInCm) {
     // Calculate BMI
   const bmi = calculateBMI(weightInKg, heightInCm);
 
+   // Calculate height in cm
+  const heightInCm = calculateHeightInCm(heightFt, heightIn);
+
+  // Calculate weight in kg
+  const weightInKg = weight / 2.205; 
+
     // Calculate TDEE
     let tdee = bmr;
     if (cycleLength && !isNaN(cycle) && !isNaN(cycleLength)) {
