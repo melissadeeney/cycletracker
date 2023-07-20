@@ -153,10 +153,11 @@ function calculateBMI(weightInKg, heightInCm) {
     results.appendChild(weightGainParagraph);   
   }
 
-  // Event listener for form submission
-document.getElementById("calorie-tracker-form").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent form submission
-  console.log("Form submitted!");
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("calorie-tracker-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission
+    console.log("Form submitted!");
 
   // Retrieve form values
   const name = document.getElementById('name').value;
@@ -197,6 +198,6 @@ document.getElementById("calorie-tracker-form").addEventListener("submit", funct
     // Show results with the cycle stage
     showResults(bmi, tdee, cycleStage);
 });
-
+});
 
 
