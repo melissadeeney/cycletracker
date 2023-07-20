@@ -99,11 +99,11 @@ function functionCalculateTDEE(bmr, activity) {
   return tdee;
 }
 
-// Calculate BMI
-    function CalculateBMI(weight, heightInCm) {
+function calculateBMI(weight, heightInCm) {
   const heightInMeters = heightInCm / 100;
-  return (weight / (heightInMeters * heightInMeters)).toFixed(2);
-}    
+  const weightInKg = weight / 2.205; // Convert weight from pounds to kilograms
+  return (weightInKg / (heightInMeters * heightInMeters)).toFixed(2);
+}
 
 
   // Show results
