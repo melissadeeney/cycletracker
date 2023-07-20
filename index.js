@@ -95,58 +95,81 @@ function functionCalculateTDEE(bmr, activity) {
   return tdee;
 }
 
-// Show results
-function showResults(bmr, tdee, cycleStage) {
-  const results = document.getElementById("results");
-
-  // Clear any existing content in the "Results" div
-  results.innerHTML = "";
-
-  const cycleParagraph = document.createElement("p");
-  cycleParagraph.textContent = "Your current menstrual stage is " + cycleStage;
-  results.appendChild(cycleParagraph);
-
-  const tdeeParagraph = document.createElement("p");
-  tdeeParagraph.textContent = "During this time you should aim to eat " + tdee + " calories.";
-  results.appendChild(tdeeParagraph);
-}
+// Calculate BMI
+    function CalculateBMI(weight, heightInCm) {
+  const heightInMeters = heightInCm / 100;
+  return (weight / (heightInMeters * heightInMeters)).toFixed(2);
+}    
 
 
-// Event listener for form submission
-document.getElementById("calorie-tracker-form").addEventListener("Submit", function(event) {
-  event.preventDefault(); // Prevent form submission
+  // Show results
+  function showResults(bmi, tdee, cycleStage) {
+    const results = document.getElementById("results");
 
-  // Retrieve form values
-  const name = document.getElementById('name').value;
-  const age = parseInt(document.getElementById('age').value);
-  const heightFt = parseInt(document.getElementById('height-ft').value);
-  const heightIn = parseInt(document.getElementById('height-in').value);
-  const weight = parseInt(document.getElementById('weight').value);
-  const activity = document.getElementById('activity').value;
-  const cycle = parseInt(document.getElementById('cycle').value);
-  const cycleLength = parseInt(document.getElementById('cycle-length').value);
+    // Clear any existing content in the "Results" div
+    results.innerHTML = "";
 
-  // Calculate BMR
-  let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
-  bmr = bmr - (4.330 * age);
-  bmr = Math.round(bmr);
+    const cycleParagraph = document.createElement("p");
+    cycleParagraph.textContent = "Your current menstrual stage is " + cycleStage;
+    results.appendChild(cycleParagraph);
+      
+    const bmiParagraph = document.createElement("p");
+    bmiParagraph.textContent = "Your BMI menstrual stage is " + bmi;
+    results.appendChild(bmiParagraph);  
 
-  // Calculate TDEE
-  let tdee = bmr;
-  if (cycleLength && !isNaN(cycle) && !isNaN(cycleLength)) {
-    const daysInCycle = cycle % cycleLength;
-    if (daysInCycle <= 5) {
-      tdee += 254;
-    } else if (daysInCycle > 21) {
-      tdee += 375;
-    }
+    const tdeeParagraph = document.createElement("p");
+    tdeeParagraph.textContent = "To maintain your current weight during this time you should aim to eat " + tdee + " calories.";
+    results.appendChild(tdeeParagraph);
+
+   // Calculate calorie intake for weight loss during the cycle stage
+    const tdeeForWeightLoss = tdee - 500;
+    const weightLossParagraph = document.createElement("p");
+    weightLossParagraph.textContent = "If you want to lose weight during this time you should aim to eat " + tdeeForWeightLoss + " calories.";
+    results.appendChild(weightLossParagraph);
+
+   // Calculate calorie intake for weight gain during the cycle stage
+    const tdeeForWeightGain = tdee + 500;
+    const weightGainParagraph = document.createElement("p");
+    weightGainParagraph.textContent = "If you want to gain weight during this time you should aim to eat " + tdeeForWeightGain + " calories.";
+    results.appendChild(weightGainParagraph);   
   }
 
-  // Calculate the menstrual cycle stage
-  const cycleStage = menstrualCycleStage(cycle, cycleLength);
+  // Event listener for form submission
+  document.getElementById("calorie-tracker-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission
 
-  // Show results with the cycle stage
-  showResults(bmr, tdee, cycleStage);
+    // Retrieve form values
+    const name = document.getElementById('name').value;
+    const age = parseInt(document.getElementById('age').value);
+    const heightFt = parseInt(document.getElementById('height-ft').value);
+    const heightIn = parseInt(document.getElementById('height-in').value);
+    const weight = parseInt(document.getElementById('weight').value);
+    const activity = document.getElementById('activity').value;
+    const cycle = parseInt(document.getElementById('cycle').value);
+    const cycleLength = parseInt(document.getElementById('cycle-length').value);
+    const bmi = CalculateBMI(weight, heightInCm);  
+
+    // Calculate BMR
+    let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
+    bmr = bmr - (4.330 * age);
+    bmr = Math.round(bmr);
+
+    // Calculate TDEE
+    let tdee = bmr;
+    if (cycleLength && !isNaN(cycle) && !isNaN(cycleLength)) {
+      const daysInCycle = cycle % cycleLength;
+      if (daysInCycle <= 5) {
+        tdee += 254;
+      } else if (daysInCycle > 21) {
+        tdee += 375;
+      }
+    }
+
+    // Calculate the menstrual cycle stage
+    const cycleStage = menstrualCycleStage(cycle, cycleLength);
+
+    // Show results with the cycle stage
+    showResults(bmi, tdee, cycleStage);
 });
 
 // Calculate weight conversion
@@ -165,9 +188,4 @@ function weightConverterKilo()
   document.getElementById("lb-amount").textContent = lb;
 };
 
-// Calculate BMI
-    function CalculateBMI(weight, heightInCm) {
-  const heightInMeters = heightInCm / 100;
-  return (weight / (heightInMeters * heightInMeters)).toFixed(2);
-}    
 
