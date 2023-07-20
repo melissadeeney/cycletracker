@@ -24,7 +24,8 @@ function getFormValues() {
   const cycleLength = parseInt(document.getElementById('cycle-length').value);
 
   // Calculate height in cm
-  const heightInCm = (heightFt * 12 + heightIn) * 2.54;
+  const heightInCm = ((heightFt * 12) + heightIn) * 2.54;
+
 
   return {
     heightFt,
