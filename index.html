@@ -166,13 +166,6 @@ function showResults(weight, heightInCm, tdee, cycleStage) {
   results.appendChild(weightLossParagraph);
 
   // Calculate calorie intake for weight gain during the cycle stage
-  const tdeeForWeightGain = tdee + 500;
-  const weightGainParagraph = document.createElement("p");
-  weightGainParagraph.textContent = "If you want to gain weight during this time you should eat " + tdeeForWeightGain + " calories.";
-  results.appendChild(weightGainParagraph);
-}
-
-  // Calculate calorie intake for weight gain during the cycle stage
     const tdeeForWeightGain = tdee + 500;
     const weightGainParagraph = document.createElement("p");
     weightGainParagraph.textContent = "If you want to gain weight during this time you should aim to eat " + tdeeForWeightGain + " calories.";
