@@ -53,12 +53,6 @@ function calculateBMR() {
   // Convert values
   const weightInKg = (weight / 2.2).toFixed(2);
 
-  // Calculate height in cm
-function calculateHeightInCm(heightFt, heightIn) {
-  const heightToCm = (heightFt * 12) + heightIn;
-  return heightToCm * 2.54;
-} 
-
   // Calculate BMR
   let bmr = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm);
   bmr = bmr - (4.330 * age);
