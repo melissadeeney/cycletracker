@@ -154,51 +154,50 @@ function calculateBMI(weightInKg, heightInCm) {
   }
 
   // Event listener for form submission
-  document.getElementById("calorie-tracker-form").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form submission
-    console.log("Form submitted!");
+document.getElementById("calorie-tracker-form").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent form submission
+  console.log("Form submitted!");
 
-    // Retrieve form values
-    const name = document.getElementById('name').value;
-    const age = parseInt(document.getElementById('age').value);
-    const heightFt = parseInt(document.getElementById('height-ft').value);
-    const heightIn = parseInt(document.getElementById('height-in').value);
-    const weight = parseInt(document.getElementById('weight').value);
-    const activity = document.getElementById('activity').value;
-    const cycle = parseInt(document.getElementById('cycle').value);
-    const cycleLength = parseInt(document.getElementById('cycle-length').value);
-    
+  // Retrieve form values
+  const name = document.getElementById('name').value;
+  const age = parseInt(document.getElementById('age').value);
+  const heightFt = parseInt(document.getElementById('height-ft').value);
+  const heightIn = parseInt(document.getElementById('height-in').value);
+  const weight = parseInt(document.getElementById('weight').value);
+  const activity = document.getElementById('activity').value;
+  const cycle = parseInt(document.getElementById('cycle').value);
+  const cycleLength = parseInt(document.getElementById('cycle-length').value);
 
-    // Calculate BMR
-    let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
-    bmr = bmr - (4.330 * age);
-    bmr = Math.round(bmr);
-
-    // Calculate BMI
-  const bmi = calculateBMI(weightInKg, heightInCm);
-
-   // Calculate height in cm
+  // Calculate height in cm
   const heightInCm = calculateHeightInCm(heightFt, heightIn);
 
   // Calculate weight in kg
-  const weightInKg = weight / 2.205; 
+  const weightInKg = weight / 2.205;
 
-    // Calculate TDEE
-    let tdee = bmr;
-    if (cycleLength && !isNaN(cycle) && !isNaN(cycleLength)) {
-      const daysInCycle = cycle % cycleLength;
-      if (daysInCycle <= 5) {
-        tdee += 254;
-      } else if (daysInCycle > 21) {
-        tdee += 375;
-      }
+  // Calculate BMR
+  let bmr = 447.593 + (9.247 * weightInKg) + (3.098 * ((heightFt * 12) + heightIn));
+  bmr = bmr - (4.330 * age);
+  bmr = Math.round(bmr);
+
+  // Calculate BMI
+  const bmi = calculateBMI(weightInKg, heightInCm);
+
+  // Calculate TDEE
+  let tdee = bmr;
+  if (cycleLength && !isNaN(cycle) && !isNaN(cycleLength)) {
+    const daysInCycle = cycle % cycleLength;
+    if (daysInCycle <= 5) {
+      tdee += 254;
+    } else if (daysInCycle > 21) {
+      tdee += 375;
     }
+  }
 
-    // Calculate the menstrual cycle stage
-    const cycleStage = menstrualCycleStage(cycle, cycleLength);
+  // Calculate the menstrual cycle stage
+  const cycleStage = menstrualCycleStage(cycle, cycleLength);
 
-    // Show results with the cycle stage
-    showResults(bmi, tdee, cycleStage);
+  // Show results with the cycle stage
+  showResults(bmi, tdee, cycleStage);
 });
 
 
