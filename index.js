@@ -158,7 +158,7 @@ function calculateBMI(weightInKg, heightInCm) {
     bmr = Math.round(bmr);
 
     // Calculate BMI
-  const bmi = CalculateBMI(weightInKg, heightInCm);
+  const bmi = calculateBMI(weightInKg, heightInCm);
 
     // Calculate TDEE
     let tdee = bmr;
