@@ -139,8 +139,20 @@
     results.appendChild(cycleParagraph);
 
     const tdeeParagraph = document.createElement("p");
-    tdeeParagraph.textContent = "During this time you should aim to eat " + tdee + " calories.";
+    tdeeParagraph.textContent = "To maintain your current weight during this time you should aim to eat " + tdee + " calories.";
     results.appendChild(tdeeParagraph);
+
+   // Calculate calorie intake for weight loss during the cycle stage
+    const tdeeForWeightLoss = tdee - 500;
+    const weightLossParagraph = document.createElement("p");
+    weightLossParagraph.textContent = "If you want to lose weight during this time you should eat " + tdeeForWeightLoss + " calories.";
+    results.appendChild(weightLossParagraph);
+
+   // Calculate calorie intake for weight gain during the cycle stage
+    const tdeeForWeightGain = tdee + 500;
+    const weightGainParagraph = document.createElement("p");
+    weightLossParagraph.textContent = "If you want to gain weight during this time you should eat " + tdeeForWeightLoss + " calories.";
+    results.appendChild(weightGainParagraph);   
   }
 
   // Event listener for form submission
