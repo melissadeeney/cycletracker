@@ -165,3 +165,9 @@ function weightConverterKilo()
   document.getElementById("lb-amount").textContent = lb;
 };
 
+// Calculate BMI
+    function CalculateBMI(weight, heightInCm) {
+  const heightInMeters = heightInCm / 100;
+  return (weight / (heightInMeters * heightInMeters)).toFixed(2);
+}    
+
