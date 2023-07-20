@@ -156,6 +156,7 @@ function calculateBMI(weightInKg, heightInCm) {
   // Event listener for form submission
   document.getElementById("calorie-tracker-form").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
+    console.log("Form submitted!");
 
     // Retrieve form values
     const name = document.getElementById('name').value;
