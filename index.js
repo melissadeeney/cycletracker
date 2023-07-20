@@ -149,3 +149,19 @@ document.getElementById("calorie-tracker-form").addEventListener("Submit", funct
   showResults(bmr, tdee, cycleStage);
 });
 
+// Calculate weight conversion
+function weightConverterStone()
+{
+  let stones = parseInt (document.getElementById("stone-amount").value);
+  let lb = stones*14;
+  document.getElementById("lb-amount").textContent = lb;
+};
+
+
+function weightConverterKilo()
+{
+  let kilos = parseInt (document.getElementById("kilo-amount").value);
+  let lb = kilos*2.205;
+  document.getElementById("lb-amount").textContent = lb;
+};
+
