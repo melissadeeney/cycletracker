@@ -127,8 +127,14 @@
     return tdee;
   }
 
+// Calculate BMI
+    function CalculateBMI(weight, heightInCm) {
+  const heightInMeters = heightInCm / 100;
+  return (weight / (heightInMeters * heightInMeters)).toFixed(2);
+}    
+          
   // Show results
-  function showResults(bmr, tdee, cycleStage) {
+  function showResults(bmi, tdee, cycleStage) {
     const results = document.getElementById("results");
 
     // Clear any existing content in the "Results" div
@@ -137,6 +143,10 @@
     const cycleParagraph = document.createElement("p");
     cycleParagraph.textContent = "Your current menstrual stage is " + cycleStage;
     results.appendChild(cycleParagraph);
+      
+    const bmiParagraph = document.createElement("p");
+    bmiParagraph.textContent = "Your BMI menstrual stage is " + bmi;
+    results.appendChild(bmiParagraph);  
 
     const tdeeParagraph = document.createElement("p");
     tdeeParagraph.textContent = "To maintain your current weight during this time you should aim to eat " + tdee + " calories.";
@@ -145,13 +155,13 @@
    // Calculate calorie intake for weight loss during the cycle stage
     const tdeeForWeightLoss = tdee - 500;
     const weightLossParagraph = document.createElement("p");
-    weightLossParagraph.textContent = "If you want to lose weight during this time you should eat " + tdeeForWeightLoss + " calories.";
+    weightLossParagraph.textContent = "If you want to lose weight during this time you should aim to eat " + tdeeForWeightLoss + " calories.";
     results.appendChild(weightLossParagraph);
 
    // Calculate calorie intake for weight gain during the cycle stage
     const tdeeForWeightGain = tdee + 500;
     const weightGainParagraph = document.createElement("p");
-    weightGainParagraph.textContent = "If you want to gain weight during this time you should eat " + tdeeForWeightGain + " calories.";
+    weightGainParagraph.textContent = "If you want to gain weight during this time you should aim to eat " + tdeeForWeightGain + " calories.";
     results.appendChild(weightGainParagraph);   
   }
 
@@ -168,6 +178,7 @@
     const activity = document.getElementById('activity').value;
     const cycle = parseInt(document.getElementById('cycle').value);
     const cycleLength = parseInt(document.getElementById('cycle-length').value);
+    const bmi = CalculateBMI(weight, heightInCm);  
 
     // Calculate BMR
     let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
@@ -189,7 +200,7 @@
     const cycleStage = menstrualCycleStage(cycle, cycleLength);
 
     // Show results with the cycle stage
-    showResults(bmr, tdee, cycleStage);
+    showResults(bmi, tdee, cycleStage);
     
   event.preventDefault(); // Prevent the form submission
   });
