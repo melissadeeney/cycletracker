@@ -87,6 +87,11 @@
 <br>
 
       <script>
+   // Calculate height in cm
+function calculateHeightInCm(heightFt, heightIn) {
+  const heightToCm = (heightFt * 12) + heightIn;
+  return heightToCm * 2.54;
+}       
   // Calculate stage of menstrual cycle
   function menstrualCycleStage(cycle, cycleLength) {
     const daysInCycle = cycle % cycleLength;
@@ -178,6 +183,9 @@
     const activity = document.getElementById('activity').value;
     const cycle = parseInt(document.getElementById('cycle').value);
     const cycleLength = parseInt(document.getElementById('cycle-length').value);
+
+    // Calculate height in cm
+  const heightInCm = calculateHeightInCm(heightFt, heightIn);  
     
     // Calculate BMR
     let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
