@@ -19,7 +19,7 @@
     <div id="action_page">
       <form class="form" id="calorie-tracker-form">
         <fieldset>
-          <legend>Enter Your Details</legend>
+          <legend style="color:darkmagenta; font-weight:bold;">Enter Your Details</legend>
           <label for="name">Your Name:</label>
           <input type="text" id="name" name="fname" placeholder="Your Name" style="width:200px;"><br><br>
           <label for="age">Your Age:</label>
@@ -48,8 +48,37 @@
           <input type="submit" value="Submit">
         </fieldset>
       </form>
-      
-       <p align="center"><iframe src="https://calendar.google.com/calendar/embed?height=300&wkst=1&bgcolor=%23B39DDB&ctz=Europe%2FLondon&hl=en_GB&src=N2M4N2U3YWU5NTljYWZlYmI0YjE4ZTA0MGZhMTAyOGM0ODBiMzBhNWIyMmJiOGFkOGUzYmMwMjliY2Q5NjA0Y0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border:solid 1px #777" width="300" height="300" frameborder="0" scrolling="no"></iframe></p>
+
+    <div class="row">
+        <div class="column">
+          <p align="center"><iframe src="https://calendar.google.com/calendar/embed?height=300&wkst=1&bgcolor=%23B39DDB&ctz=Europe%2FLondon&hl=en_GB&src=N2M4N2U3YWU5NTljYWZlYmI0YjE4ZTA0MGZhMTAyOGM0ODBiMzBhNWIyMmJiOGFkOGUzYmMwMjliY2Q5NjA0Y0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border:solid 1px #777" width="300" height="300" frameborder="0" scrolling="no"></iframe></p>
+        </div>
+
+        <div class="column">
+          <p>Weight Converter</p>
+          <span>Weight In Stones:</span>
+          <input type="number" id="stone-amount" placeholder="i.e. 10.9" style="width:70px;">
+          <button onclick="weightConverterStone()">
+            Convert
+          </button>
+          <br>
+          <span>Weight In Kilos:</span>
+          <input type="number" id="kilo-amount" placeholder="i.e. 101" style="width:70px;">
+
+          <button onclick="weightConverterKilo()">
+            Convert
+          </button>
+
+          <br>
+
+          <p>
+            Weight In Pounds:
+            <span id="lb-amount"></span>
+          </p>
+        </div>
+      </div>
+
+      <p id="results">
     
     <br><br>
       
