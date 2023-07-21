@@ -202,7 +202,7 @@ function calculateBMI(weightInKg, heightInCm) {
       
     
     // Calculate BMR
-    let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
+    let bmr = 447.593 + (9.247 * weightInKg) + (3.098 * ((heightFt * 12) + heightIn));
     bmr = bmr - (4.330 * age);
     bmr = Math.round(bmr);
 
