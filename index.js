@@ -35,6 +35,8 @@ function getFormValues() {
     heightInCm,
   };
 }
+// Calculate height in cm
+  const heightInCm = calculateHeightInCm(heightFt, heightIn);
 
 // Calculate BMR
 function calculateBMR() {
