@@ -34,6 +34,8 @@ function getFormValues() {
   const cycle = parseInt(document.getElementById('cycle').value);
   const cycleLength = parseInt(document.getElementById('cycle-length').value);
 
+  // Calculate height in cm
+  const heightInCm = calculateHeightInCm(heightFt, heightIn);
 
   return {
     heightFt,
@@ -47,7 +49,6 @@ function getFormValues() {
   };
 }
 
-// Calculate BMR
 function calculateBMR() {
   const formValues = getFormValues();
   const {
@@ -58,14 +59,11 @@ function calculateBMR() {
     activity,
     cycle,
     cycleLength,
-    heightInCm, 
+    heightInCm,
   } = formValues;
 
-  // Calculate height in cm
-  const heightInCm = calculateHeightInCm(heightFt, heightIn);
-  
-  // Calculate weight in kg
-  const weightInKg = (weight / 2.2).toFixed(2);
+  // Convert weight to kg
+  const weightInKg = weight / 2.205;
 
   // Calculate BMR
   let bmr = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * age);
