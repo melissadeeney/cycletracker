@@ -191,13 +191,15 @@ function calculateBMI(weightInKg, heightInCm) {
     const cycle = parseInt(document.getElementById('cycle').value);
     const cycleLength = parseInt(document.getElementById('cycle-length').value);
 
-    console.log(name, age, heightFt, heightIn, weight, activity, cycle, cycleLength);
+    
 
 
     // Calculate height in cm
   const heightInCm = calculateHeightInCm(heightFt, heightIn);  
     // Calculate weight in kg
   const weightInKg = calculateWeightInKg(weight);
+
+      console.log(bmr);
     
     // Calculate BMR
     let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
@@ -209,7 +211,7 @@ function calculateBMI(weightInKg, heightInCm) {
       
    // Calculate TDEE based on activity level
   let tdee = functionCalculateTDEE(bmr, activity);
-
+console.log(tdee);
   // Check cycle
   const cycleStage = menstrualCycleStage(cycle, cycleLength);
   if (cycleStage === "Follicular Phase") {
