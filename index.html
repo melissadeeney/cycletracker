@@ -163,7 +163,7 @@ function calculateBMI(weightInKg, heightInCm) {
     const tdeeParagraph = document.createElement("p");
     tdeeParagraph.textContent = "To maintain your current weight during this time you should aim to eat " + tdee + " calories.";
     results.appendChild(tdeeParagraph);
-
+console.log(tdee)
    // Calculate calorie intake for weight loss during the cycle stage
     const tdeeForWeightLoss = tdee - 500;
     const weightLossParagraph = document.createElement("p");
@@ -205,14 +205,13 @@ function calculateBMI(weightInKg, heightInCm) {
     let bmr = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * age);
     bmr = Math.round(bmr);
 
-      console.log(bmr);
 
     // Calculate BMI
       const bmi = calculateBMI(weightInKg, heightInCm);
       
    // Calculate TDEE based on activity level
   let tdee = functionCalculateTDEE(bmr, activity);
-console.log(tdee);
+
   // Check cycle
   const cycleStage = menstrualCycleStage(cycle, cycleLength);
   if (cycleStage === "Follicular Phase") {
