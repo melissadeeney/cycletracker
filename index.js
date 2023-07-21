@@ -19,7 +19,7 @@ function calculateHeightInCm(heightFt, heightIn) {
   // Convert height to inches
   const heightInInches = heightFt * 12 + heightIn;
 
-  // Convert height to centimeters
+  // Convert height to centimetres
   const heightInCm = heightInInches * 2.54;
 
   return heightInCm;
@@ -46,8 +46,6 @@ function getFormValues() {
     heightInCm,
   };
 }
-// Calculate height in cm
-  const heightInCm = calculateHeightInCm(heightFt, heightIn);
 
 // Calculate BMR
 function calculateBMR() {
@@ -63,7 +61,10 @@ function calculateBMR() {
     heightInCm, 
   } = formValues;
 
-  // Convert values
+  // Calculate height in cm
+  const heightInCm = calculateHeightInCm(heightFt, heightIn);
+  
+  // Calculate weight in kg
   const weightInKg = (weight / 2.2).toFixed(2);
 
   // Calculate BMR
