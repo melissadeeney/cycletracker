@@ -171,8 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const weightInKg = weight / 2.205;
 
   // Calculate BMR
-  let bmr = 447.593 + (9.247 * weightInKg) + (3.098 * ((heightFt * 12) + heightIn));
-  bmr = bmr - (4.330 * age);
+  let bmr = 447.593 + (9.247 * weightInKg) * (3.098 heightInCm) - 4.330 * age;
   bmr = Math.round(bmr);
 
   // Calculate BMI
