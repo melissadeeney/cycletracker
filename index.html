@@ -199,12 +199,14 @@ function calculateBMI(weightInKg, heightInCm) {
     // Calculate weight in kg
   const weightInKg = calculateWeightInKg(weight);
 
-      console.log(bmr);
+      
     
     // Calculate BMR
     let bmr = 447.593 + (9.247 * weight) + (3.098 * ((heightFt * 12) + heightIn));
     bmr = bmr - (4.330 * age);
     bmr = Math.round(bmr);
+
+      console.log(bmr);
 
     // Calculate BMI
       const bmi = calculateBMI(weightInKg, heightInCm);
