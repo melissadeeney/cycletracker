@@ -14,6 +14,17 @@ function weightConverterKilo()
   document.getElementById("lb-amount").textContent = lb;
 };
 
+// Calculate height in cm
+function calculateHeightInCm(heightFt, heightIn) {
+  // Convert height to inches
+  const heightInInches = heightFt * 12 + heightIn;
+
+  // Convert height to centimeters
+  const heightInCm = heightInInches * 2.54;
+
+  return heightInCm;
+}
+
 function getFormValues() {
   const heightFt = parseInt(document.getElementById('height-ft').value);
   const heightIn = parseInt(document.getElementById('height-in').value);
