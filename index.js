@@ -54,10 +54,9 @@ function calculateBMR() {
   const weightInKg = (weight / 2.2).toFixed(2);
 
   // Calculate BMR
-  let bmr = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm);
-  bmr = bmr - (4.330 * age);
+  let bmr = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * age);
   bmr = Math.round(bmr);
-
+  
   // Check cycle
   const cycleStage = menstrualCycleStage(cycle, cycleLength);
   if (cycleStage === "Follicular Phase") {
