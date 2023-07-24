@@ -43,10 +43,11 @@
             <option value="Athlete (2x a day)">Athlete (2x a day)</option>
           </select>
           <br>
-          <label for="cycle">Days since your last period:</label>
-          <input type="number" id="cycle" placeholder="Days since last period" required style="width:200px;"><br><br>
+          <label for="cycle">How many days since the first day of your last period:</label>
+          <input type="number" min="1" id="cycle" placeholder="If today is the first day, write 1" required style="width:200px;"><br><br>
           <label for="cycle-length">Average Cycle length:</label>
           <input type="number" id="cycle-length" placeholder="Average cycle length" required style="width:200px;"><br><br>
+            <p id="error" style="visibility:hidden; color:red"> Oops! Seems like you made a mistake, check your days and try again!</p>
           <input type="submit" value="Submit">
         </fieldset>
       </form>
@@ -90,95 +91,95 @@
 <br>
 
       <script>
-   // Calculate height in cm
-function calculateHeightInCm(heightFt, heightIn) {
-  const heightToCm = (heightFt * 12) + heightIn;
-  return heightToCm * 2.54;
-} 
-  // Calculate weight in kg
-function calculateWeightInKg(weight) {
-    return (weight / 2.205).toFixed(2);
-}    
-  // Calculate stage of menstrual cycle
-  function menstrualCycleStage(cycle, cycleLength) {
-    const daysInCycle = cycle % cycleLength;
+//    // Calculate height in cm
+// function calculateHeightInCm(heightFt, heightIn) {
+//   const heightToCm = (heightFt * 12) + heightIn;
+//   return heightToCm * 2.54;
+// } 
+//   // Calculate weight in kg
+// function calculateWeightInKg(weight) {
+//     return (weight / 2.205).toFixed(2);
+// }    
+//   // Calculate stage of menstrual cycle
+//   function menstrualCycleStage(cycle, cycleLength) {
+//     const daysInCycle = cycle % cycleLength;
 
-    if (daysInCycle <= 5) {
-      return "Menstruation";
-    } else if (daysInCycle <= 14) {
-      return "Follicular Phase";
-    } else if (daysInCycle <= 21) {
-      return "Ovulation";
-    } else {
-      return "Luteal Phase";
-    }
-  }
+//     if (daysInCycle <= 5) {
+//       return "Menstruation";
+//     } else if (daysInCycle <= 14) {
+//       return "Follicular Phase";
+//     } else if (daysInCycle <= 21) {
+//       return "Ovulation";
+//     } else {
+//       return "Luteal Phase";
+//     }
+//   }
 
-  // Calculate TDEE
-  function functionCalculateTDEE(bmr, activity) {
-    let tdee;
+//   // Calculate TDEE
+//   function functionCalculateTDEE(bmr, activity) {
+//     let tdee;
 
-    switch (activity) {
-      case "Sedentary (office job)":
-        tdee = Math.round(bmr * 1.2);
-        break;
-      case "Light Exercise (1-2 days a week)":
-        tdee = Math.round(bmr * 1.375);
-        break;
-      case "Moderate Exercise (3-5 days a week)":
-        tdee = Math.round(bmr * 1.55);
-        break;
-      case "Heavy Exercise (6-7 days a week)":
-        tdee = Math.round(bmr * 1.725);
-        break;
-      case "Athlete (2x a day)":
-        tdee = Math.round(bmr * 1.9);
-        break;
-      default:
-      // Set a default value for tdee in case of an unknown activity
-      tdee = Math.round(bmr * 1.375); 
-      break;
-    }
+//     switch (activity) {
+//       case "Sedentary (office job)":
+//         tdee = Math.round(bmr * 1.2);
+//         break;
+//       case "Light Exercise (1-2 days a week)":
+//         tdee = Math.round(bmr * 1.375);
+//         break;
+//       case "Moderate Exercise (3-5 days a week)":
+//         tdee = Math.round(bmr * 1.55);
+//         break;
+//       case "Heavy Exercise (6-7 days a week)":
+//         tdee = Math.round(bmr * 1.725);
+//         break;
+//       case "Athlete (2x a day)":
+//         tdee = Math.round(bmr * 1.9);
+//         break;
+//       default:
+//       // Set a default value for tdee in case of an unknown activity
+//       tdee = Math.round(bmr * 1.375); 
+//       break;
+//     }
 
-    return tdee;
-  }
+//     return tdee;
+//   }
 
-function calculateBMI(weightInKg, heightInCm) {
-  const heightInMetres = heightInCm / 100; // Convert height from centimeters to meters
-  return (weightInKg / (heightInMetres * heightInMetres)).toFixed(2);
-}
+// function calculateBMI(weightInKg, heightInCm) {
+//   const heightInMetres = heightInCm / 100; // Convert height from centimeters to meters
+//   return (weightInKg / (heightInMetres * heightInMetres)).toFixed(2);
+// }
           
-  // Show results
-  function showResults(bmi, tdee, cycleStage) {
-    const results = document.getElementById("results");
+//   // Show results
+//   function showResults(bmi, tdee, cycleStage) {
+//     const results = document.getElementById("results");
 
-    // Clear any existing content in the "Results" div
-    results.innerHTML = "";
+//     // Clear any existing content in the "Results" div
+//     results.innerHTML = "";
 
-    const cycleParagraph = document.createElement("p");
-    cycleParagraph.textContent = "Your current menstrual stage is " + cycleStage;
-    results.appendChild(cycleParagraph);
+//     const cycleParagraph = document.createElement("p");
+//     cycleParagraph.textContent = "Your current menstrual stage is " + cycleStage;
+//     results.appendChild(cycleParagraph);
       
-    const bmiParagraph = document.createElement("p");
-    bmiParagraph.textContent = "Your BMI is " + bmi;
-    results.appendChild(bmiParagraph);  
+//     const bmiParagraph = document.createElement("p");
+//     bmiParagraph.textContent = "Your BMI is " + bmi;
+//     results.appendChild(bmiParagraph);  
 
-    const tdeeParagraph = document.createElement("p");
-    tdeeParagraph.textContent = "To maintain your current weight during this time you should aim to eat " + tdee + " calories.";
-    results.appendChild(tdeeParagraph);
-console.log(tdee)
-   // Calculate calorie intake for weight loss during the cycle stage
-    const tdeeForWeightLoss = tdee - 500;
-    const weightLossParagraph = document.createElement("p");
-    weightLossParagraph.textContent = "If you want to lose weight during this time you should aim to eat " + tdeeForWeightLoss + " calories.";
-    results.appendChild(weightLossParagraph);
+//     const tdeeParagraph = document.createElement("p");
+//     tdeeParagraph.textContent = "To maintain your current weight during this time you should aim to eat " + tdee + " calories.";
+//     results.appendChild(tdeeParagraph);
+// console.log(tdee)
+//    // Calculate calorie intake for weight loss during the cycle stage
+//     const tdeeForWeightLoss = tdee - 500;
+//     const weightLossParagraph = document.createElement("p");
+//     weightLossParagraph.textContent = "If you want to lose weight during this time you should aim to eat " + tdeeForWeightLoss + " calories.";
+//     results.appendChild(weightLossParagraph);
 
-   // Calculate calorie intake for weight gain during the cycle stage
-    const tdeeForWeightGain = tdee + 500;
-    const weightGainParagraph = document.createElement("p");
-    weightGainParagraph.textContent = "If you want to gain weight during this time you should aim to eat " + tdeeForWeightGain + " calories.";
-    results.appendChild(weightGainParagraph);   
-  }
+//    // Calculate calorie intake for weight gain during the cycle stage
+//     const tdeeForWeightGain = tdee + 500;
+//     const weightGainParagraph = document.createElement("p");
+//     weightGainParagraph.textContent = "If you want to gain weight during this time you should aim to eat " + tdeeForWeightGain + " calories.";
+//     results.appendChild(weightGainParagraph);   
+//   }
 
   // Event listener for form submission
 //   document.getElementById("calorie-tracker-form").addEventListener("submit", function (event) {
