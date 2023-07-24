@@ -231,9 +231,9 @@ function picflip1(){
   mouseleave: function(){
     (this).attr('src','https://i.ibb.co/9HWhfmJ/LUTEALMINI.png');
   }
-  };
+  });
   
-});
+};
 
 function picflip2(){
   ("#homebutton2").on({
@@ -243,9 +243,9 @@ function picflip2(){
   mouseleave: function(){
     (this).attr('src','https://i.ibb.co/pWCrTLt/FOLLICULARMINI.png');
   }
-  };
+  });
   
-});
+};
 
 function picflip3(){
   ("#homebutton3").on({
@@ -255,9 +255,9 @@ function picflip3(){
   mouseleave: function(){
     (this).attr('src','https://i.ibb.co/g3vb1D2/MENSTRUALMINI.png');
   }
-  };
+  });
   
-});
+};
 
 function picflip4(){
   ("#homebutton4").on({
@@ -267,8 +267,8 @@ function picflip4(){
   mouseleave: function(){
     (this).attr('src','https://i.ibb.co/Z29CQtK/OVULATORYMINI.png');
   }
-  };
+  });
   
-});
+};
 
 
