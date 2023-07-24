@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Show results with the cycle stage
-    showResults(bmi, tdee, cycleStage);
+    if (ValidationEvent())showResults(bmi, tdee, cycleStage);
 });
 });
 
