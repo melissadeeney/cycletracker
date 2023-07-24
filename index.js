@@ -228,7 +228,7 @@ function setnewimagelut() {
 
  function setoldimagelut() {
  document.getElementById("lutmini").src = "https://i.ibb.co/9HWhfmJ/LUTEALMINI.png";
- }
+ };
 
 
 function setnewimagefol() {
@@ -237,7 +237,7 @@ function setnewimagefol() {
 
  function setoldimagefol() {
  document.getElementById("folmini").src = "https://i.ibb.co/pWCrTLt/FOLLICULARMINI.png";
- }
+ };
 
 function setnewimagemen() {
  document.getElementById("menmini").src = "https://i.ibb.co/pjRsnZb/menstrualphaselongdesc.png";
@@ -245,7 +245,7 @@ function setnewimagemen() {
 
  function setoldimagemen() {
  document.getElementById("menmini").src = "https://i.ibb.co/g3vb1D2/MENSTRUALMINI.png";
- }
+ };
 
 function setnewimageovu() {
  document.getElementById("ovumini").src = "https://i.ibb.co/6YzZqCt/ovulatoryphaselongdesc.png";
@@ -253,6 +253,6 @@ function setnewimageovu() {
 
  function setoldimageovu() {
  document.getElementById("ovumini").src = "https://i.ibb.co/Z29CQtK/OVULATORYMINI.png";
- }
+ };
 
 
