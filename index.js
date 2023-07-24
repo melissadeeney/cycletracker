@@ -206,4 +206,53 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 });
 
+//picture hover flip thing
+$(function(){
+  $("#homebutton1").on({
+   mouseenter: function(){
+    $(this).attr('src','https://i.ibb.co/xqYTDX8/luteallong2.png');
+  },
+  mouseleave: function(){
+    $(this).attr('src','https://i.ibb.co/9HWhfmJ/LUTEALMINI.png');
+  }
+  });
+  
+});
+
+$(function(){
+  $("#homebutton2").on({
+   mouseenter: function(){
+    $(this).attr('src','https://i.ibb.co/kXR2H15/FOLLICULARphaselongdesc.png');
+  },
+  mouseleave: function(){
+    $(this).attr('src','https://i.ibb.co/pWCrTLt/FOLLICULARMINI.png');
+  }
+  });
+  
+});
+
+$(function(){
+  $("#homebutton3").on({
+   mouseenter: function(){
+    $(this).attr('src','https://i.ibb.co/pjRsnZb/menstrualphaselongdesc.png');
+  },
+  mouseleave: function(){
+    $(this).attr('src','https://i.ibb.co/g3vb1D2/MENSTRUALMINI.png');
+  }
+  });
+  
+});
+
+$(function(){
+  $("#homebutton4").on({
+   mouseenter: function(){
+    $(this).attr('src','https://i.ibb.co/6YzZqCt/ovulatoryphaselongdesc.png');
+  },
+  mouseleave: function(){
+    $(this).attr('src','https://i.ibb.co/Z29CQtK/OVULATORYMINI.png');
+  }
+  });
+  
+});
+
 
