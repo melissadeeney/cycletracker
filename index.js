@@ -24,7 +24,23 @@ function calculateHeightInCm(heightFt, heightIn) {
 
   return heightInCm;
 }
-
+//validation of cycle data
+function ValidationEvent() {
+const cycle = parseInt(document.getElementById('cycle').value);
+const cycleLength = parseInt(document.getElementById('cycle-length').value);
+var error = document.querySelector('#error');
+  
+  if(cycle > cycleLength)
+    {
+       error.style.visibility = 'visible';
+      return false;   // Returns Value
+    }
+  else
+    {
+      error.style.visibility = 'hidden'
+     return true;   // Returns Value
+    }
+}
 function getFormValues() {
   const heightFt = parseInt(document.getElementById('height-ft').value);
   const heightIn = parseInt(document.getElementById('height-in').value);
