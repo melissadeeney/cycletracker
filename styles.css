@@ -6,6 +6,7 @@ body {
   margin: 0px;
   padding: 0px;
   background-color: #8f008f;
+  background-size: contain;
 }
 
 .page {
@@ -36,7 +37,7 @@ header span {
 }
 
 #IntroText {
-  color: #000000;
+  color: black;
   text-align: center;
   Width: 70%;
   margin-left: auto;
@@ -59,11 +60,11 @@ header span {
   background-color: rgb(255 255 255 / 0.8);
   padding: 20px;
   margin: auto;
-  font-color: darkmagenta;
+  font-color: black;
 }
 
 #results {
-  color: darkmagenta;
+  color: black;
   text-align: left;
   Width: 70%;
   margin-left: auto;
@@ -114,3 +115,17 @@ div.column p {
   color: darkmagenta;
   font-weight: bold;
 }
+
+#cover {
+  width: 800px;
+  height: 800px;
+  align-content: center;
+  margin-left: 490px;
+  margin-top: 30px;
+  
+}
+
+#cover > img {
+  align-items: center;
+}
+
