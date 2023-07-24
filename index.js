@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //picture hover flip thing
-(function(){
+function(){
   ("#homebutton1").on({
    mouseenter: function(){
     (this).attr('src','https://i.ibb.co/xqYTDX8/luteallong2.png');
@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
 });
 
-(function(){
+function(){
   ("#homebutton2").on({
    mouseenter: function(){
     (this).attr('src','https://i.ibb.co/kXR2H15/FOLLICULARphaselongdesc.png');
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
 });
 
-(function(){
+function(){
   ("#homebutton3").on({
    mouseenter: function(){
     (this).attr('src','https://i.ibb.co/pjRsnZb/menstrualphaselongdesc.png');
@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
 });
 
-(function(){
+function(){
   ("#homebutton4").on({
    mouseenter: function(){
     (this).attr('src','https://i.ibb.co/6YzZqCt/ovulatoryphaselongdesc.png');
