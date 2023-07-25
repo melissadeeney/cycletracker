@@ -122,3 +122,25 @@ div.column p {
   height:200px;
 }
 
+.img-gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 250px;
+}
+
+.img-gallery > column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30%;
+  vertical-align: middle;
+}
+
+.img-gallery img {
+  object-fit: cover;
+  width: 50%;
+  height: 50%;
+  vertical-align: middle;
+}
+
