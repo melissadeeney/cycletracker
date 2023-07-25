@@ -151,6 +151,10 @@ function calculateBMI(weightInKg, heightInCm) {
     // Clear any existing content in the "Results" div
     results.innerHTML = "";
 
+    const personalisedMessage = document.createElement("p");
+    personalisedMessage.textContent = `Hi ${name}, here are your results:`;
+    results.appendChild(personalisedMessage);
+
     const cycleParagraph = document.createElement("p");
     cycleParagraph.textContent = "Your current menstrual stage is " + cycleStage;
     results.appendChild(cycleParagraph);
@@ -218,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Show results with the cycle stage
-    if (ValidationEvent())showResults(bmi, tdee, cycleStage);
+    if (ValidationEvent())showResults(name, bmi, tdee, cycleStage);
 });
 });
 
