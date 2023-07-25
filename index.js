@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function setnewimagelut() {
- document.getElementById("lutmini").src = "https://i.ibb.co/xqYTDX8/luteallong2.png";
+ document.getElementById("lutmini").src = "https://i.ibb.co/pQzYpCM/lutealphaselongdesc.png";
  }
 
  function setoldimagelut() {
