@@ -145,7 +145,7 @@ function calculateBMI(weightInKg, heightInCm) {
 
 
   // Show results
-  function showResults(bmi, tdee, cycleStage) {
+  function showResults(name, bmi, tdee, cycleStage) {
     const results = document.getElementById("results");
 
     // Clear any existing content in the "Results" div
